@@ -7,7 +7,7 @@ def main():
     print("Hello, Welcome to Python!")
 
     a = 60
-    b = 40
+    b = 70
 
     print("The sum is:", add(a, b))
     print("Python application executed successfully!")
