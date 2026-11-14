@@ -6,8 +6,8 @@ def add(a, b):
 def main():
     print("Hello, Welcome to Python!")
 
-    a = 20
-    b = 30
+    a = 60
+    b = 40
 
     print("The sum is:", add(a, b))
     print("Python application executed successfully!")
