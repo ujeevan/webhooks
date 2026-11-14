@@ -1,11 +1,17 @@
 
-print("Hello, Welcome to Python!")
+def add(a, b):
+    return a + b
 
-a = 20
-b = 30
 
-sum = a + b
+def main():
+    print("Hello, Welcome to Python!")
 
-print("The sum is:", sum)
+    a = 20
+    b = 30
 
-print("Python application executed successfully!")
+    print("The sum is:", add(a, b))
+    print("Python application executed successfully!")
+
+
+if __name__ == "__main__":
+    main()
