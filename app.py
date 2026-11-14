@@ -1,8 +1,8 @@
 
 print("Hello, Welcome to Python!")
 
-a = 10
-b = 20
+a = 20
+b = 30
 
 sum = a + b
 
