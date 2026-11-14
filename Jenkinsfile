@@ -3,6 +3,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
@@ -12,19 +13,20 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Checking Python application'
-                bat 'python -m py_compile app.py'
+                bat 'python -m py_compile app.py test_app.py'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Executing automated tests'
-                bat 'python -m unittest app'
+                bat 'python -m unittest -v test_app'
             }
         }
 
         stage('Run Application') {
             steps {
+                echo 'Running Python application'
                 bat 'python app.py'
             }
         }
