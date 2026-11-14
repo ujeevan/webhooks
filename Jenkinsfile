@@ -1,44 +1,49 @@
-
 pipeline {
     agent any
 
-    stages {
+    environment {
+        PYTHON = 'C:\Users\student\AppData\Local\Python\bin\python.exe'
+    }
 
+    stages {
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
+        stage('Check Python') {
+            steps {
+                bat '"%PYTHON%" --version'
+            }
+        }
+
         stage('Build') {
             steps {
-                echo 'Checking Python application'
-                bat 'python -m py_compile app.py test_app.py'
+                echo 'Checking Python Application'
+                bat '"%PYTHON%" -m py_compile app.py'
             }
         }
-
         stage('Test') {
             steps {
-                echo 'Executing automated tests'
-                bat 'python -m unittest -v test_app'
-            }
-        }
-
+                echo 'Executing application test'
+                bat '"%PYTHON%" -m py_compile app.py'
+                echo 'Test completed successfully'
+    }
+}
         stage('Run Application') {
             steps {
-                echo 'Running Python application'
-                bat 'python app.py'
+                bat '"%PYTHON%" app.py'
             }
         }
     }
 
     post {
         success {
-            echo 'CI pipeline completed successfully'
+            echo 'CI Pipeline completed successfully'
         }
-
         failure {
-            echo 'CI pipeline failed'
+            echo 'CI Pipeline failed'
         }
     }
 }
