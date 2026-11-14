@@ -6,7 +6,7 @@ def add(a, b):
 def main():
     print("Hello, Welcome to Python!")
 
-    a = 60
+    a = 90
     b = 70
 
     print("The sum is:", add(a, b))
